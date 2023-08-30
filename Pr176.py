@@ -10,5 +10,5 @@ about_doc = nlp(about_text)
 sentences = list(about_doc.sents)
 len(sentences)
 
-for sentence in sentences:
+for sentence in sentences: 
     print(f"{sentence[:5]}...")
