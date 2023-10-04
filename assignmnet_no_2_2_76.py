@@ -47,6 +47,27 @@ for item in g_tfidf[g_bow]:
 
 
 
+from gensim.models.word2vec import Word2Vec
+from multiprocessing import cpu_count
+import gensim.downloader as api
+
+
+data=[
+    "This is a sentenece",
+    "another  example sentence",
+    "word embedding are useful",
+    "word2vec is apopular model"
+]
+tok_data=[sentence.split()for sentence in data]
+
+w2v_model = Word2Vec(tok_data, min_count = 0, workers=cpu_count())
+sim_word=w2v_model.wv.most_similar('word')
+print("\n\n\nWord2Vec : \n\n")
+for word,score in sim_word:
+    print(f"{word}: {score}")
+
+
+
 '''
 OUTPUT:
 
@@ -71,4 +92,19 @@ TF-IDF Vector:
 
 [['be', 0.43], ['better', 0.43], ['but', 0.43], ['can', 0.43], ['excellent', 0.43], ['food', 0.09], ['is', 0.21], ['service', 0.09], ['the', 0.18]]
 [['food', 0.11], ['is', 0.26], ['service', 0.11], ['the', 0.21], ['always', 0.52], ['and', 0.26], ['delicious', 0.52], ['loved', 0.52]]
-[['food', 0.08], ['service', 0.08], ['the', 0.16], ['and', 0.2], ['mediocre', 0.39], ['terrible', 0.39], ['was', 0.78]]   '''
+[['food', 0.08], ['service', 0.08], ['the', 0.16], ['and', 0.2], ['mediocre', 0.39], ['terrible', 0.39], ['was', 0.78]]   
+
+
+Word2Vec : 
+
+
+sentenece: 0.11117951571941376
+another: 0.1088901162147522
+is: 0.09291724115610123
+embedding: 0.00484249135479331
+apopular: -0.0027540253940969706
+word2vec: -0.013679751195013523
+This: -0.02546103298664093
+useful: -0.028491031378507614
+a: -0.04090546816587448
+are: -0.05774581804871559'''
