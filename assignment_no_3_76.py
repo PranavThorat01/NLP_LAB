@@ -4,6 +4,7 @@ Name:Thorat Pranav Padmakar
 Batch:B4
 Roll no: 76
 Title: "Assignment on Named Entity Recognition (NER) in Python with Spacy library "
+
 '''
 
 import spacy
@@ -27,6 +28,7 @@ spacy.explain("ORG")
 
 
 spacy.explain("GPE")
+
 
 #displacy.render(text1,style="ent",jupyter=True)
 
