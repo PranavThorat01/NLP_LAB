@@ -78,6 +78,7 @@ print(entities)
 '''
 output:
 
+
 (S
   Sundar/NOUN
   Pichai/NOUN
